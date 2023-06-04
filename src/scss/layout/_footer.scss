@@ -1,0 +1,12 @@
+.footer{
+    background-color: $grisOscuro;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .footerContenedor{
+        padding-top: 2rem;
+        .nav{
+            justify-content: center;
+        }
+    }
+}
