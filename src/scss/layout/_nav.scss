@@ -1,15 +1,49 @@
-.barra{
-    display: flex;
-    flex-direction: column;
+.barraNegra{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0;
+    background-color: $negro;
+    justify-items: center;
+    
     @include tablet{
-        flex-direction: row;
-        justify-content: space-between;
+        grid-template-columns: 1fr 1fr;
+    }
+    @include desktop{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .socialMedia{
+        display: none;
+        
+        @include desktop{
+            display: block;
+        }
+    }
+    .menu-top{
+        
+        display: flex;
+        margin: 0rem;
+        list-style-type: none;
+        gap: 1rem;
+        a{
+            color: $blanco;
+        }
+    }
+}
+.barra{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    @include tablet{
+        grid-template-columns: 1fr 3fr;
+        gap: 5rem;
     }
 }
 .nav{
     @include tablet{
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        width: 100%;
     }
     a{
         color: $blanco;
@@ -18,12 +52,13 @@
         text-align: center;
         
         @include tablet{
-            margin-right: 2rem;
-            font-size: 1.8rem;
-            
-            &:last-of-type{
-                margin-right: 0;
-            }
+            font-size: 2rem;
+        }
+    }
+    p{
+        display: none;
+        @include tablet{
+            display: block;
         }
     }
 }
