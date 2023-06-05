@@ -1,19 +1,31 @@
+h2{
+    text-align: center;
+    font-weight: $black;
+    border-bottom: 1px solid #e3e3e3;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: $blanco;
+}
 .contenido {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
     margin: 2rem;
     justify-items: center;
     gap: 3rem;
+    @include tablet{
+        grid-template-columns: auto 3fr;
+    }
 }
 
 .menu {
     width: 100%;
     height: auto;
-    background-color: $grisOscuro;
+    
 
     ul {
+        background-color: $grisOscuro;
         display: flex;
-        height: 100%;
+        height: auto;
         flex-direction: column;
         justify-content: space-between;
         margin: 0rem;
@@ -30,6 +42,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            min-width: 25rem;
             &:first-of-type{
                 background: $negro;
                 color: $blanco;
@@ -47,14 +60,28 @@
 .options {
     width: 100%;
     height: auto;
-    background-color: $grisOscuro;
-
+    
+    .banner{
+        margin: 1rem;
+        img{
+            width: 100%;
+        }
+    }
+    h2{
+        text-align: start;
+        font-weight: $black;
+        border-bottom: 1px solid #e3e3e3;
+        text-transform: uppercase;
+        font-size: 2rem;
+        color: $blanco;
+    }
     ul {
         display: grid;
+        background-color: $grisOscuro;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         margin: 3rem;
         list-style-type: none;
-        padding: 0;
+        padding: 1rem;
         gap: 4rem;
     }
 
