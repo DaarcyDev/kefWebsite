@@ -75,6 +75,7 @@ h2{
         font-size: 2rem;
         color: $blanco;
     }
+    
     ul {
         display: grid;
         background-color: $grisOscuro;
@@ -93,7 +94,13 @@ h2{
             color: $negro;
 
             img {
-                width: 100%;
+                width: 90%;
+                align-items: center;
+                border: 0.2rem #000 solid;
+                padding: 0rem;
+                margin: 1rem;
+                display: flex;
+                justify-content: center;
             }
         }
 

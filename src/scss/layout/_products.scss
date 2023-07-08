@@ -1,0 +1,46 @@
+
+.contenedor{
+    .goBack{
+        width: 100%;
+        background: $gris;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $negro;
+        height: 4rem;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: $bold;
+    }
+    .contenidoProduct{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+    
+    
+    
+        img{
+            width: 100%;
+        }
+        h1{
+            color: $blanco;
+            text-transform: uppercase;
+            font-weight: $bold;
+        }
+        p{
+            color: $blanco;
+        }
+        .text-center{
+            text-align: start;
+            font-weight: $black;
+            border-bottom: 1px solid #e3e3e3;
+            text-transform: uppercase;
+            font-size: 2rem;
+            color: $blanco;
+            text-align: center;
+        }
+        li{
+            color: $blanco;
+        }
+    }
+}
