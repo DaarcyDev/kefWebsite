@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="contenedor seccion">
+        <h2>singIn</h2>
+        <div class="contenidoForm">
+            <form action="/signin/" method="POST" class="card card-body">
+                <h1 class="text-center">signIn</h1>
+                <div class="mb-3">
+                  <label for="username">Username:</label>
+                  <input type="text" name="username" id="username" placeholder="Wite your Username" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="password">Password:</label>
+                  <input type="password" name="password" id="password" placeholder="Wite your password" class="form-control" />
+                </div>
+                <button class="btn btn-primary">singIn</button>
+              </form>
+        </div>
+    </main>
+    {% endblock content %}
