@@ -1,13 +1,18 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from .forms import productForm
+from .models import Product
+
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    products = Product.objects.all()
+    return render(request, 'index.html',{
+        "product" : products
+    })
 
 def blog(request):
     return render(request, 'blog.html')
@@ -75,9 +80,15 @@ def signout (request):
 def product(request):
     return render(request, 'product.html')
 
-def adminProduct(request):
-    return render(request, 'adminProduct.html')
+def adminProduct(request, product_id):
+    products = get_object_or_404(Product, pk=product_id)
+    return render(request, 'adminProduct.html',{
+        "product" : products
+    })
 
 def indexAdmin(request):
-    return render(request, 'admin.html')
+    products = Product.objects.all()
+    return render(request, 'admin.html',{
+        "products" : products
+    })
 

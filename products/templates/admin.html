@@ -7,14 +7,23 @@
             <a href="{% url 'createProduct' %}" class="buttonAdmin">Create</a>
             <div class="options">
                 <ul>
+                    
+
+
+                    {% for product in products %}
                     <li class="ropa prendas mujer Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
+                        <a href="{% url 'adminProduct' product.id%}">
+                            <img src="{{product.image.url}}"
                                 alt="playera">
-                            <h3>playera</h3>
+                            <h3>{{product.title}}</h3>
                         </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
+                        <p>${{product.price}}</p>
+                        {% if  product.exist %}
+                            <p class="existencia">Existencia</p>
+                        {% else %}
+                            <p class="existencia">No Existencia</p>
+                        {% endif %}
+                        
                         <div class="opciones">
                             <button>agregar</button>
                             <a href="">ver mas</a>
@@ -26,193 +35,7 @@
                         
                         
                     </li>
-                    <li class="ropa prendas mujer Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas mujer Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas mujer Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas hombre Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://w7.pngwing.com/pngs/33/974/png-transparent-t-shirts-t-shirts-mens-white.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas hombre Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://w7.pngwing.com/pngs/33/974/png-transparent-t-shirts-t-shirts-mens-white.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas hombre Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://w7.pngwing.com/pngs/33/974/png-transparent-t-shirts-t-shirts-mens-white.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas hombre Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://w7.pngwing.com/pngs/33/974/png-transparent-t-shirts-t-shirts-mens-white.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas niño Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://static.vecteezy.com/system/resources/previews/021/103/387/original/pink-t-shirt-free-png.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas niño Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://static.vecteezy.com/system/resources/previews/021/103/387/original/pink-t-shirt-free-png.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>1
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas niño Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://static.vecteezy.com/system/resources/previews/021/103/387/original/pink-t-shirt-free-png.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
-                    <li class="ropa prendas niño Playeras">
-                        <a href="{% url 'adminProduct' %}">
-                            <img src="https://static.vecteezy.com/system/resources/previews/021/103/387/original/pink-t-shirt-free-png.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                        <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
-                        </div>
-                    </li>
+                    {% endfor %}
                     
                 </ul>
             </div>

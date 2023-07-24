@@ -5,14 +5,19 @@
         <a href="{% url 'admin' %}" class="goBack">GoBack</a>
         <h2>Products</h2>
         <div class="contenidoProduct">
-            <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
+            <img src="{{product.image.url}}"
                 alt="image">
             <div class="info">
-                <h1>tittle</h1>
+                <h1>{{product.title}}</h1>
+                
+                <p>${{product.price}}</p>
+                {% if  product.exist %}
+                    <p class="existencia">Existencia</p>
+                {% else %}
+                    <p class="existencia">No Existencia</p>
+                {% endif %}
                 <p>Descripcion</p>
-                <p>$500</p>
-                <p>Existencia</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum assumenda minima maxime dignissimos et. Eius eum voluptatibus aspernatur similique debitis! Est, esse veniam. Dolore pariatur neque soluta quidem facilis iure.</p>
+                <p>{{product.description}}</p>
             </div>
             
         </div>

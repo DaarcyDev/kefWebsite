@@ -32,8 +32,8 @@ urlpatterns = [
     path("logout/", views.signout, name="logout"),
     path("product/", views.product, name="product"),
     path("indexAdmin/", views.indexAdmin, name = "admin"),
-    path("indexAdmin/adminProduct/", views.adminProduct, name="adminProduct"),
-    path("indexAdmin/adminProduct/createProduct", views.createProduct, name="createProduct"),
+    path("indexAdmin/<int:product_id>/", views.adminProduct, name="adminProduct"),
+    path("indexAdmin/createProduct", views.createProduct, name="createProduct"),
     
 ]
 
