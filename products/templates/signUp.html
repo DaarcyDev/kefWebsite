@@ -4,7 +4,9 @@
     <main class="contenedor seccion">
         <h2>singup</h2>
         <div class="contenidoForm">
-            <form action="/singup/" method="POST" class="card card-body   ">
+            <form action="/signup/" method="POST" class="card card-body   ">
+                {% csrf_token %}
+                {{ error }}
                 <h1 class="text-center">signup</h1>
                 <div class="mb-3">
                     <label for="username">Username: </label>

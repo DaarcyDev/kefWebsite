@@ -1,124 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KefWebsite</title>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="build/css/app.css">
-    <script src="https://use.fontawesome.com/db1b734b40.js"></script>
-</head>
-
-<body>
-    <header class="header">
-        <div class="barraNegra">
-            <div class="about">
-                <ul class="menu-top">
-                    <li>
-                        <a title="Nosotros" href="about.html">Nosotros</a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a title="Blog" href="blog.html">Blog</a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a title="Contacto" href="">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="socialMedia">
-                <ul class="menu-top">
-                    <li>
-                        <a title="Facebook" class="fb" target="_blank" href=""><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li>
-                        <a title="Youtube" class="youtube" target="_blank" href=""><i
-                                class="fa fa-youtube-play"></i></a>
-                    </li>
-                    <li>
-                        <a title="Twitter" class="tw" target="_blank" href=""><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a title="Instagram" class="instagram" target="_blank" href=""><i
-                                class="fa fa-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a title="Google +" class="google" target="_blank" href=""><i class="fa fa-google-plus"></i></a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <i class="fa fa-phone"></i>
-                        777 123 4567
-                    </li>
-                    <li>|</li>
-                    <li class="help">
-                        <a title="Ayuda" href="">Ayuda</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="signin">
-                <ul class="menu-top">
-                    <li>
-                        <a title="Iniciar sesión" href="singIn.html">Iniciar sesión</a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a title="Registrarme" href="signUp.html">Registrarme</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="contenedor headerContenedor">
-            <div class="barra">
-                <a href="index.html">
-                    <img src="https://static.vecteezy.com/system/resources/previews/001/192/065/original/circle-logo-turbine-png.png"
-                        alt="logo">
-                </a>
-                <nav class="nav">
-                    <a href="index.html">Inicio</a>
-                    <p>|</p>
-                    <a href="#" id="btnHombre">Hombre</a>
-                    <p>|</p>
-                    <a href="#" id="btnMujer">Mujer</a>
-                    <p>|</p>
-                    <a href="#" id="btnNiño">Niños</a>
-                    <p>|</p>
-                    <a href="#">Carrito</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+{% block content %}
     <main class="contenedor seccion">
-        <a href="index.html" class="goBack">GoBack</a>
+        <a href="{% url 'index' %}" class="goBack">GoBack</a>
         <h2>Products</h2>
         <div class="contenidoProduct">
             <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
                 alt="image">
             <div class="info">
                 <h1>tittle</h1>
-                <p>Descripcion</p>
                 <p>$500</p>
                 <p>Existencia</p>
+                <p>Descripcion:</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum assumenda minima maxime dignissimos et. Eius eum voluptatibus aspernatur similique debitis! Est, esse veniam. Dolore pariatur neque soluta quidem facilis iure.</p>
             </div>
             
         </div>
     </main>
-    <footer class="footer seccion">
-        <div class="contenedor footerContenedor">
-            <nav class="nav">
-                <a href="#">Inicio</a>
-                <a href="#">Tienda</a>
-                <a href="#">Acerca de</a>
-                <a href="#">Login</a>
-            </nav>
-        </div>
-        <p class="copyright">Todos los derechos reservados 2021</p>
-    </footer>
-    <script src="build/js/bundle.min.js"></script>
-</body>
-
-</html>
+    {% endblock content %}

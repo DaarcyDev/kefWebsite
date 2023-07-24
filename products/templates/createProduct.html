@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="contenedor seccion">
+    <h2>Create Product</h2>
+    
+    <div class="contenidoForm">
+        <form action="{% url 'createProduct' %}" method="POST" class="card card-body" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{error}}
+            {{form.as_p}}
+            <button class="btn btn-primary">save</button>
+        </form>
+    </div>
+</main>
+{% endblock content %}

@@ -1,100 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KefWebsite</title>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="build/css/app.css">
-    <script src="https://use.fontawesome.com/db1b734b40.js"></script>
-</head>
-<body>
-    <header class="header">
-        <div class="barraNegra">
-            <div class="about">
-                <ul class="menu-top">
-                    <li>
-                        <a title="Nosotros" href="about.html">Nosotros</a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a title="Blog" href="blog.html">Blog</a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a title="Contacto" href="">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="socialMedia">
-                <ul class="menu-top">
-                    <li>
-                        <a title="Facebook" class="fb" target="_blank" href=""><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li>
-                        <a title="Youtube" class="youtube" target="_blank" href=""><i class="fa fa-youtube-play"></i></a>
-                    </li>
-                    <li>
-                        <a title="Twitter" class="tw" target="_blank" href=""><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a title="Instagram" class="instagram" target="_blank" href=""><i class="fa fa-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a title="Google +" class="google" target="_blank" href=""><i class="fa fa-google-plus"></i></a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <i class="fa fa-phone"></i>
-                        777 123 4567
-                    </li>
-                    <li>|</li>
-                    <li class="help">
-                        <a title="Ayuda" href="">Ayuda</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="signin">
-                <ul class="menu-top">
-                    <li>
-                        <a title="Iniciar sesión" href="singIn.html">Iniciar sesión</a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a title="Registrarme" href="signUp.html">Registrarme</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="contenedor headerContenedor">
-            <div class="barra">
-                <a href="index.html">
-                    <img src="https://static.vecteezy.com/system/resources/previews/001/192/065/original/circle-logo-turbine-png.png" alt="logo">
-                </a>
-                <nav class="nav">
-                    <a href="index.html">Inicio</a>
-                    <p>|</p>
-                    <a href="#" id="btnHombre">Hombre</a>
-                    <p>|</p>
-                    <a href="#" id="btnMujer">Mujer</a>
-                    <p>|</p>
-                    <a href="#" id="btnNiño">Niños</a>
-                    <p>|</p>
-                    <a href="#">Carrito</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+{% block content %}
     <main class="contenedor seccion">
         <h2>Inicio</h2>
         <div class="contenidoAdmin">
-            <a href="#" class="buttonAdmin">Create</a>
+            <a href="{% url 'createProduct' %}" class="buttonAdmin">Create</a>
             <div class="options">
                 <ul>
                     <li class="ropa prendas mujer Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -113,7 +27,7 @@
                         
                     </li>
                     <li class="ropa prendas mujer Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -130,7 +44,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas mujer Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -147,7 +61,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas mujer Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -164,7 +78,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas hombre Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://w7.pngwing.com/pngs/33/974/png-transparent-t-shirts-t-shirts-mens-white.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -181,7 +95,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas hombre Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://w7.pngwing.com/pngs/33/974/png-transparent-t-shirts-t-shirts-mens-white.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -198,7 +112,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas hombre Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://w7.pngwing.com/pngs/33/974/png-transparent-t-shirts-t-shirts-mens-white.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -215,7 +129,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas hombre Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://w7.pngwing.com/pngs/33/974/png-transparent-t-shirts-t-shirts-mens-white.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -232,7 +146,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas niño Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://static.vecteezy.com/system/resources/previews/021/103/387/original/pink-t-shirt-free-png.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -249,7 +163,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas niño Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://static.vecteezy.com/system/resources/previews/021/103/387/original/pink-t-shirt-free-png.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -266,7 +180,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas niño Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://static.vecteezy.com/system/resources/previews/021/103/387/original/pink-t-shirt-free-png.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -283,7 +197,7 @@
                         </div>
                     </li>
                     <li class="ropa prendas niño Playeras">
-                        <a href="adminProduct.html">
+                        <a href="{% url 'adminProduct' %}">
                             <img src="https://static.vecteezy.com/system/resources/previews/021/103/387/original/pink-t-shirt-free-png.png"
                                 alt="playera">
                             <h3>playera</h3>
@@ -304,18 +218,4 @@
             </div>
         </div>
     </main>
-    <footer class="footer seccion">
-        <div class="contenedor footerContenedor">
-            <nav class="nav">
-                <a href="#">Inicio</a>
-                <a href="#">Tienda</a>
-                <a href="#">Acerca de</a>
-                <a href="#">Login</a>
-            </nav>
-        </div>
-        <p class="copyright">Todos los derechos reservados 2021</p>
-    </footer>
-    <script src="build/js/bundle.min.js"></script>
-</body>
-
-</html>
+    {% endblock content %}
