@@ -2,19 +2,38 @@
 
 {% block content %}
     <main class="contenedor seccion">
-        <a href="{% url 'index' %}" class="goBack">GoBack</a>
+        
         <h2>Products</h2>
         <div class="contenidoProduct">
-            <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
-                alt="image">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.title }}">
+            {% endif %}
             <div class="info">
-                <h1>tittle</h1>
-                <p>$500</p>
-                <p>Existencia</p>
-                <p>Descripcion:</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum assumenda minima maxime dignissimos et. Eius eum voluptatibus aspernatur similique debitis! Est, esse veniam. Dolore pariatur neque soluta quidem facilis iure.</p>
+                <h1>{{product.title}}</h1>
+                
+                <p>${{product.price}}</p>
+                {% if  product.exist %}
+                    <p class="existencia">Existencia</p>
+                {% else %}
+                    <p class="existencia">No Existencia</p>
+                {% endif %}
+                <p>Genero</p>
+                {% if product.is_male  %}
+                    <p class="existencia">Masculino</p>
+                {% endif %}
+                {% if product.is_female  %}
+                    <p class="existencia">Femenino</p>
+                {% endif %}
+                {% if product.is_child  %}
+                    <p class="existencia">Niño</p>
+                {% endif %}
+                <p>Descripcion</p>
+                <p>{{product.description}}</p>
+                <p>Categoria</p>
+                <p>{{product.category}}</p>
             </div>
             
         </div>
+        <a href="{% url 'index' %}" class="goBack">GoBack</a>
     </main>
     {% endblock content %}

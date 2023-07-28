@@ -78,23 +78,10 @@
                 
                 <h2>Productos Destacados</h2>
                 <ul>
-                    <li class="ropa prendas mujer Pantalones">
-                        <a href="{% url 'product' %}">
-                            <img src="https://w7.pngwing.com/pngs/20/307/png-transparent-t-shirts-t-shirts-mens-white.png"
-                                alt="playera">
-                            <h3>playera</h3>
-                        </a>
-                        <p>$500</p>
-                        <p class="existencia">Existencia</p>
-                        <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
-                        </div>
-                    </li>
                     {% for product in products %}
                     <li class="ropa prendas {% if product.is_male %} hombre {% endif %}{% if product.is_female %} mujer {% endif %}{% if product.is_child %} niño {% endif %} {{product.category}}">
 
-                        <a href="{% url 'adminProduct' product.id%}">
+                        <a href="{% url 'product' product.id %}">
                             {% if product.image %}
                                 <img src="{{ product.image.url }}" >
                             {% endif %}
