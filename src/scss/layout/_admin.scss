@@ -31,10 +31,14 @@
         align-items: center;
         justify-content: center;
         padding: 2rem;
+        form{
+            width: 100%;
+        }
         .buttonEliminar{
             background-color: $rojo;
             color: $blanco;
-            padding: 0 3rem;
+            border: none;
+            padding: .5rem 3rem;
             width: 100%;
             text-align: center;
             margin: 1rem 0;

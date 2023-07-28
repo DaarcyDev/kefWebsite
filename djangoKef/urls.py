@@ -33,7 +33,9 @@ urlpatterns = [
     path("product/", views.product, name="product"),
     path("indexAdmin/", views.indexAdmin, name = "admin"),
     path("indexAdmin/<int:product_id>/", views.adminProduct, name="adminProduct"),
+    path("indexAdmin/<int:product_id>/delete", views.deleteProduct, name="deleteProduct"),
     path("indexAdmin/createProduct", views.createProduct, name="createProduct"),
+    path("indexAdmin/updateProduct/<int:product_id>", views.updateProduct, name ="updateProduct")
     
 ]
 

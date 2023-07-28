@@ -78,6 +78,12 @@
                             <a title="Registrarme" href="{% url 'signup' %}">Registrarme</a>
                         </li>
                     {% endif %}
+                    {% if user.username == "daarcydev" %}
+                        <li>|</li>
+                        <li>
+                            <a title="admin" href="{% url 'admin' %}">Admin</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

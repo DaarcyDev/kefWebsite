@@ -10,5 +10,9 @@ class productForm(ModelForm):
             "price",
             "exist",
             "description",
-            "image"
+            "image",
+            "is_male",
+            "is_female",
+            "is_child",
+            "category",
         ]

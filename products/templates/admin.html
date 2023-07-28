@@ -11,10 +11,12 @@
 
 
                     {% for product in products %}
-                    <li class="ropa prendas mujer Playeras">
+                    <li class="ropa prendas {% if product.is_male %} hombre {% endif %}{% if product.is_female %} mujer {% endif %}{% if product.is_child %} niño {% endif %} {{product.category}}">
+
                         <a href="{% url 'adminProduct' product.id%}">
-                            <img src="{{product.image.url}}"
-                                alt="playera">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" >
+                            {% endif %}
                             <h3>{{product.title}}</h3>
                         </a>
                         <p>${{product.price}}</p>
@@ -29,8 +31,11 @@
                             <a href="">ver mas</a>
                         </div>
                         <div class="adminOptions">
-                            <a href="#" class="buttonEliminar">Eliminar</a>
-                            <a href="#" class="buttonActualizar">Actualizar</a>
+                            <form action="{% url 'deleteProduct' product.id %}" method="POST">
+                                {% csrf_token %}
+                                <button href="#" class="buttonEliminar">Eliminar</button>
+                            </form>
+                            <a href="{% url 'updateProduct' product.id %}" class="buttonActualizar">Actualizar</a>
                         </div>
                         
                         

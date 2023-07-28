@@ -2,11 +2,12 @@
 
 {% block content %}
     <main class="contenedor seccion">
-        <a href="{% url 'admin' %}" class="goBack">GoBack</a>
+        
         <h2>Products</h2>
         <div class="contenidoProduct">
-            <img src="{{product.image.url}}"
-                alt="image">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.title }}">
+            {% endif %}
             <div class="info">
                 <h1>{{product.title}}</h1>
                 
@@ -16,10 +17,23 @@
                 {% else %}
                     <p class="existencia">No Existencia</p>
                 {% endif %}
+                <p>Genero</p>
+                {% if product.is_male  %}
+                    <p class="existencia">Masculino</p>
+                {% endif %}
+                {% if product.is_female  %}
+                    <p class="existencia">Femenino</p>
+                {% endif %}
+                {% if product.is_child  %}
+                    <p class="existencia">Niño</p>
+                {% endif %}
                 <p>Descripcion</p>
                 <p>{{product.description}}</p>
+                <p>Categoria</p>
+                <p>{{product.category}}</p>
             </div>
             
         </div>
+        <a href="{% url 'admin' %}" class="goBack">GoBack</a>
     </main>
     {% endblock content %}

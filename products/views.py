@@ -11,7 +11,7 @@ from .models import Product
 def index(request):
     products = Product.objects.all()
     return render(request, 'index.html',{
-        "product" : products
+        "products" : products
     })
 
 def blog(request):
@@ -81,10 +81,13 @@ def product(request):
     return render(request, 'product.html')
 
 def adminProduct(request, product_id):
-    products = get_object_or_404(Product, pk=product_id)
-    return render(request, 'adminProduct.html',{
-        "product" : products
-    })
+    try:
+        products = get_object_or_404(Product, pk=product_id, user=request.user)
+        return render(request, 'adminProduct.html',{
+            "product" : products
+        })
+    except:
+        return redirect("admin")
 
 def indexAdmin(request):
     products = Product.objects.all()
@@ -92,3 +95,31 @@ def indexAdmin(request):
         "products" : products
     })
 
+def updateProduct(request, product_id):
+    if request.method == "GET":
+        try:
+            products = get_object_or_404(Product, pk=product_id, user=request.user)
+            form = productForm(instance=products)
+            return render(request, 'updateProduct.html',{
+                "product" : products,
+                "form": form
+            })
+        except:
+            return redirect("admin")
+    else:
+        try:
+            products = get_object_or_404(Product, pk=product_id, user=request.user)
+            form = productForm(request.POST, instance=products)
+            form.save()
+            # print(form)
+            return redirect("admin")
+        except:
+            return render(request, 'updateProduct.html',{
+            'form': productForm,
+            'error': 'please provide valide data'
+        })
+def deleteProduct(request, product_id):
+    products = get_object_or_404(Product, pk=product_id, user=request.user)
+    if request.method == "POST":
+        products.delete()
+        return redirect("admin")
