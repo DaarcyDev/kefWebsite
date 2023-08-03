@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from .forms import productForm
 from .models import Product
 from django.contrib.auth.decorators import user_passes_test, login_required
+from .carrito import Carrito
 
 # Create your views here.
 def user_is_specific_user(user):
@@ -140,3 +141,34 @@ def deleteProduct(request, product_id):
     if request.method == "POST":
         products.delete()
         return redirect("admin")
+
+
+def tienda(request):
+
+    products = Product.objects.all()
+    return render(request,'tienda.html',{
+        'products':products
+    })
+
+def agragarProducto(request,producto_id):
+    carrito = Carrito(request)
+    producto = Product.objects.get(id = producto_id)
+    carrito.agregar(producto)
+    return redirect("tienda")
+
+def eliminar(request,producto_id):
+    carrito = Carrito(request)
+    producto = Product.objects.get(id=producto_id)
+    carrito.eliminar(producto)
+    return redirect("tienda")
+
+def restar(request,producto_id):
+    carrito = Carrito(request)
+    producto = Product.objects.get(id=producto_id)
+    carrito.restar(producto)
+    return redirect("tienda")
+
+def limpiar(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect("tienda")

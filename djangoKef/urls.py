@@ -22,6 +22,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
@@ -35,7 +36,12 @@ urlpatterns = [
     path("indexAdmin/<int:product_id>/", views.adminProduct, name="adminProduct"),
     path("indexAdmin/<int:product_id>/delete", views.deleteProduct, name="deleteProduct"),
     path("indexAdmin/createProduct", views.createProduct, name="createProduct"),
-    path("indexAdmin/updateProduct/<int:product_id>", views.updateProduct, name ="updateProduct")
+    path("indexAdmin/updateProduct/<int:product_id>", views.updateProduct, name ="updateProduct"),
+    path("tienda/",views.tienda, name="tienda"),
+    path("agregar/<int:producto_id>/", views.agragarProducto, name="add"),
+    path("elimnar/<int:producto_id>/", views.eliminar, name="elimnar"),
+    path("restar/<int:producto_id>/", views.restar, name="restar"),
+    path("limpiar/", views.limpiar, name="limpiar"),
     
 ]
 

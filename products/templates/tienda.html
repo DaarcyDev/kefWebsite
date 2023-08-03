@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="contenedor seccion">
+        <h2>Inicio</h2>
+        <div class="contenidoAdmin">
+            <a href="{% url 'createProduct' %}" class="buttonAdmin">Create</a>
+            <div class="options">
+                <ul>
+                    
+
+
+                    {% for product in products %}
+                    <li class="ropa prendas {% if product.is_male %} hombre {% endif %}{% if product.is_female %} mujer {% endif %}{% if product.is_child %} niño {% endif %} {{product.category}}">
+
+                        <a href="{% url 'adminProduct' product.id%}">
+                            {% if product.image %}
+                                <img src="{{ product.image.url }}" >
+                            {% endif %}
+                            <h3>{{product.title}}</h3>
+                        </a>
+                        <p>${{product.price}}</p>
+                        {% if  product.exist %}
+                            <p class="existencia">Existencia</p>
+                        {% else %}
+                            <p class="existencia">No Existencia</p>
+                        {% endif %}
+                        
+                        <div class="opciones">
+                            <a href="{% url 'add' product.id %}">agregar</a>
+                            <a href="">ver mas</a>
+                        </div>
+
+                        
+                        
+                    </li>
+                    {% endfor %}
+                    
+                </ul>
+            </div>
+        </div>
+        <div>
+            {% include "carrito.html" %}
+        </div>
+    </main>
+    {% endblock content %}

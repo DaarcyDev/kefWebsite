@@ -1,0 +1,45 @@
+
+    <main class="contenedor seccion">
+        <h2>Carrito</h2>
+        <div class="contenidoAdmin">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>precio</th>
+                        <th>cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if request.session.carrito.items %}
+                        {% for key, value in request.session.carrito.items %}
+                            <tr>
+                                <td>{{value.nombre}}</td>
+                                <td>{{value.precio}}</td>
+                                <td>{{value.acumulado}}
+                                    <a href="{% url 'add' value.producto_id %}">+</a>
+                                    <a href="{% url 'restar' value.producto_id %}">-</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td>
+                            <div>sin productos</div>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <th>Total:</th>
+                        <td>${{total_carrito}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+
+        </div>
+        <div>
+            <div><a href="{% url 'limpiar' %}">limpiar</a></div>
+            <div><a href="#">guardar</a></div>
+        </div>
+    </main>
