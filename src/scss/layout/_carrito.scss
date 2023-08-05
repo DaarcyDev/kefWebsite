@@ -1,0 +1,56 @@
+.adCcarrito{
+    display: flex;
+    h2{
+        width: 100%;
+    }
+}
+.carrito{
+    border-left: 1px solid #e3e3e3;
+    padding:0 1rem;
+    position: sticky;
+    .seccion{
+        display: flex;
+        flex-direction: column;
+        h2{
+            width: 100%;
+        }
+    }
+    table{
+        th{
+            color: $blanco;
+            padding: 1rem;
+            border: 1px solid #e3e3e3;
+        }
+        td{
+            color: $blanco;
+            padding: 1rem;
+            border-bottom: 1px solid #e3e3e3;
+            a{
+                color: $blanco;
+            }
+        }
+    }
+    .botones{
+        .buttonLimpiar{
+            background-color: $amarillo;
+            color: $blanco;
+            padding: 0 3rem;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .buttonGuardar{
+            background-color: $verde;
+            color: $blanco;
+            padding: 0 3rem;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+    }
+    
+}

@@ -154,21 +154,21 @@ def agragarProducto(request,producto_id):
     carrito = Carrito(request)
     producto = Product.objects.get(id = producto_id)
     carrito.agregar(producto)
-    return redirect("tienda")
+    return redirect("index")
 
 def eliminar(request,producto_id):
     carrito = Carrito(request)
     producto = Product.objects.get(id=producto_id)
     carrito.eliminar(producto)
-    return redirect("tienda")
+    return redirect("index")
 
 def restar(request,producto_id):
     carrito = Carrito(request)
     producto = Product.objects.get(id=producto_id)
     carrito.restar(producto)
-    return redirect("tienda")
+    return redirect("index")
 
 def limpiar(request):
     carrito = Carrito(request)
     carrito.limpiar()
-    return redirect("tienda")
+    return redirect("index")

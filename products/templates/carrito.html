@@ -15,9 +15,10 @@
                         {% for key, value in request.session.carrito.items %}
                             <tr>
                                 <td>{{value.nombre}}</td>
-                                <td>{{value.precio}}</td>
-                                <td>{{value.acumulado}}
+                                <td>${{value.acumulado}}</td>
+                                <td>
                                     <a href="{% url 'add' value.producto_id %}">+</a>
+                                    {{value.cantidad}}
                                     <a href="{% url 'restar' value.producto_id %}">-</a>
                                 </td>
                             </tr>
@@ -30,7 +31,7 @@
                     </tr>
                     {% endif %}
                     <tr>
-                        <th>Total:</th>
+                        <td>Total:</td>
                         <td>${{total_carrito}}</td>
                     </tr>
                 </tbody>
@@ -38,8 +39,8 @@
             <hr>
 
         </div>
-        <div>
-            <div><a href="{% url 'limpiar' %}">limpiar</a></div>
-            <div><a href="#">guardar</a></div>
+        <div class="botones">
+            <div><a class="buttonLimpiar" href="{% url 'limpiar' %}">limpiar</a></div>
+            <div><a class="buttonGuardar" href="#">guardar</a></div>
         </div>
     </main>

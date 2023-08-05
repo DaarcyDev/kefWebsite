@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <main class="contenedor seccion">
-        <h2>Inicio</h2>
+<h2>Inicio</h2>
+    <main class="contenedor seccion adCcarrito">
         <div class="contenido">
             <div class="menu">
                 <ul>
@@ -95,14 +95,17 @@
                         {% endif %}
                         
                         <div class="opciones">
-                            <button>agregar</button>
-                            <a href="">ver mas</a>
+                            <a href="{% url 'add' product.id %}">agregar</a>
+                            <a href="{% url 'product' product.id %}">ver mas</a>
                         </div>
                         
                     </li>
                     {% endfor %}
                 </ul>
             </div>
+        </div>
+        <div class="carrito">
+            {% include "carrito.html" %}
         </div>
     </main>
     {% endblock content %}

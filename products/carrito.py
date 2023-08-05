@@ -20,7 +20,7 @@ class Carrito:
             }
         else:
             self.carrito[id]["cantidad"] += 1
-            self.carrito[id]["acumulado"] += producto.precio
+            self.carrito[id]["acumulado"] += producto.price
         self.guardar_carrito()
 
     def guardar_carrito(self):
@@ -36,9 +36,10 @@ class Carrito:
     def restar(self,producto):
         id = str(producto.id)
         if(id in self.carrito.keys()):
-            self.carrito[id]["carrito"] -= 1
-            self.carrito[id]["acumilado"] -= producto.precio
-            if self.carrito[id]["cantidad"] <= 0: self.elimnar(producto)
+            self.carrito[id]["cantidad"] -= 1
+            self.carrito[id]["acumulado"] -= producto.price
+            if self.carrito[id]["cantidad"] <= 0: 
+                self.eliminar(producto)
             self.guardar_carrito()
 
     def limpiar(self):

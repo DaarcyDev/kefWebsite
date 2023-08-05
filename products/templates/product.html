@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h2>Products</h2>
     <main class="contenedor seccion">
-        
-        <h2>Products</h2>
         <div class="contenidoProduct">
             {% if product.image %}
                 <img src="{{ product.image.url }}" alt="{{ product.title }}">

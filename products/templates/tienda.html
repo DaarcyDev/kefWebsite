@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <main class="contenedor seccion">
-        <h2>Inicio</h2>
+    <main class="contenedor seccion adCcarrito">
+        
         <div class="contenidoAdmin">
-            <a href="{% url 'createProduct' %}" class="buttonAdmin">Create</a>
+            <h2>Inicio</h2>
             <div class="options">
                 <ul>
-                    
-
 
                     {% for product in products %}
                     <li class="ropa prendas {% if product.is_male %} hombre {% endif %}{% if product.is_female %} mujer {% endif %}{% if product.is_child %} niño {% endif %} {{product.category}}">
@@ -39,7 +37,7 @@
                 </ul>
             </div>
         </div>
-        <div>
+        <div class="carrito">
             {% include "carrito.html" %}
         </div>
     </main>
