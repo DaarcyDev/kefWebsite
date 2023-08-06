@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main class="contenedor seccion adCcarrito">
+        <div class="contenidoAdmin">
+            <h2>Inicio</h2>
+            <div class="options">
+                <ul>
+                    {% for product in cart_items %}
+                        <img src="{{ product.product.image.url }}" alt="{{ cart_item.product.title }}">
+                        <p>Producto: {{product.product.title}}</p>
+                        <p>Precio: {{product.product.price}}</p>
+                        <p>Cantidad: {{product.quantity}}</p>
+                        
+                    </li>
+                    {% endfor %}
+                    
+                </ul>
+            </div>
+        </div>
+
+    </main>
+    {% endblock content %}

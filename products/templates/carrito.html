@@ -39,8 +39,12 @@
             <hr>
 
         </div>
-        <div class="botones">
-            <div><a class="buttonLimpiar" href="{% url 'limpiar' %}">limpiar</a></div>
-            <div><a class="buttonGuardar" href="#">guardar</a></div>
-        </div>
+        <form method="post" action="{% url 'guardar_carrito' %}">
+            {% csrf_token %}
+            <div class="botones">
+                <div><a class="buttonLimpiar" href="{% url 'limpiar' %}">limpiar</a></div>
+                <div><button type="submit" class="buttonGuardar">guardar</button></div>
+            </div>
+        </form>
+        
     </main>

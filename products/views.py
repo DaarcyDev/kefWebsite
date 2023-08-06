@@ -4,9 +4,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from .forms import productForm
-from .models import Product
+from .models import Product, CartItem
 from django.contrib.auth.decorators import user_passes_test, login_required
 from .carrito import Carrito
+
 
 # Create your views here.
 def user_is_specific_user(user):
@@ -143,6 +144,14 @@ def deleteProduct(request, product_id):
         return redirect("admin")
 
 
+def vista_del_carrito(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+    return render(request, 'carritoVista.html', {
+        'cart_items': cart_items
+        })
+
+
+
 def tienda(request):
 
     products = Product.objects.all()
@@ -172,3 +181,18 @@ def limpiar(request):
     carrito = Carrito(request)
     carrito.limpiar()
     return redirect("index")
+
+
+def guardar_carrito(request):
+    if request.method == 'POST':
+        carrito = Carrito(request)
+        for producto_id, producto_info in carrito.carrito.items():
+            producto = Product.objects.get(id=producto_info["producto_id"])
+            cantidad = producto_info["cantidad"]
+            cart_item = CartItem(user=request.user, product=producto, quantity=cantidad)
+            cart_item.save()
+
+        carrito.limpiar()
+
+    return redirect("carrito")
+

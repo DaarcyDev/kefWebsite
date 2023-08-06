@@ -42,6 +42,8 @@ urlpatterns = [
     path("elimnar/<int:producto_id>/", views.eliminar, name="elimnar"),
     path("restar/<int:producto_id>/", views.restar, name="restar"),
     path("limpiar/", views.limpiar, name="limpiar"),
+    path("guardar/", views.guardar_carrito,name="guardar_carrito"),
+    path("carrito/",views.vista_del_carrito, name="carrito"),
     
 ]
 
