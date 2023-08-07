@@ -1,21 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <main class="contenedor seccion adCcarrito">
+    <main class="contenedor seccion addCarrito">
         <div class="contenidoAdmin">
             <h2>Inicio</h2>
             <div class="options">
-                <ul>
-                    {% for product in cart_items %}
-                        <img src="{{ product.product.image.url }}" alt="{{ cart_item.product.title }}">
-                        <p>Producto: {{product.product.title}}</p>
-                        <p>Precio: {{product.product.price}}</p>
-                        <p>Cantidad: {{product.quantity}}</p>
-                        
-                    </li>
+                <table>
+                    <thead class="info">
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Precio unitario</th>
+                            <th>Precio Final</th>
+                            <th>Cantidad</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cart_item in cart_items %}
+                        <tr class="infoProduct">
+                            <td><img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.title }}"></td>
+                            <td>{{ cart_item.product.title }}</td>
+                            <td>${{ cart_item.product.price }}</td>
+                            <td>${{ total }}</td>
+
+                            <td>
+                                <a href="{% url 'addCarrito' cart_item.product.id %}">+</a>
+                                {{ cart_item.quantity }}
+                                <a href="{% url 'restarCarrito' cart_item.product.id %}">-</a>
+                            </td>
+                            <td><a href="{% url 'eliminarCarrito' cart_item.id %}">Eliminar</a></td>
+                        </tr>
                     {% endfor %}
                     
-                </ul>
+                    </tbody>
+                </table>
             </div>
         </div>
 

@@ -1,7 +1,26 @@
-.adCcarrito{
+.addCarrito{
     display: flex;
     h2{
         width: 100%;
+    }
+    .contenidoAdmin{
+        width: 100%;
+        table{
+            width: 100%;
+            background-color: $gris;
+            border-radius: 1rem;
+            th{
+                background-color: $grisOscuro;
+                color: $blanco;
+            }
+            td{
+                img{
+                    margin: 0 auto;
+                }
+                text-align: center;
+            }
+        }
+        
     }
 }
 .carrito{

@@ -1,23 +1,6 @@
-"""
-URL configuration for djangoKef project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from products import views
-# agregamos estas 2 para poder subir imagenes
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -38,13 +21,15 @@ urlpatterns = [
     path("indexAdmin/createProduct", views.createProduct, name="createProduct"),
     path("indexAdmin/updateProduct/<int:product_id>", views.updateProduct, name ="updateProduct"),
     path("tienda/",views.tienda, name="tienda"),
-    path("agregar/<int:producto_id>/", views.agragarProducto, name="add"),
-    path("elimnar/<int:producto_id>/", views.eliminar, name="elimnar"),
+    path("agregar/<int:producto_id>/", views.agregarProducto, name="add"),
+    path("elimnar/<int:producto_id>/", views.eliminar, name="eliminar"),
     path("restar/<int:producto_id>/", views.restar, name="restar"),
     path("limpiar/", views.limpiar, name="limpiar"),
     path("guardar/", views.guardar_carrito,name="guardar_carrito"),
     path("carrito/",views.vista_del_carrito, name="carrito"),
-    
+    path("eliminarCarrito/<int:producto_id>/", views.eliminarCarrito, name="eliminarCarrito"),
+    path("agregarCarrito/<int:producto_id>/", views.agregarCarrito, name="addCarrito"),
+    path("restarCarrito/<int:producto_id>/", views.restarCarrito, name="restarCarrito"),
 ]
 
 if settings.DEBUG:

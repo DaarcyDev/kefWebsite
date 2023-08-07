@@ -145,12 +145,11 @@ def deleteProduct(request, product_id):
 
 
 def vista_del_carrito(request):
-    cart_items = CartItem.objects.filter(user=request.user)
+    cart_items = CartItem.objects.filter(user=request.user)    
+
     return render(request, 'carritoVista.html', {
-        'cart_items': cart_items
+        'cart_items': cart_items,
         })
-
-
 
 def tienda(request):
 
@@ -159,7 +158,7 @@ def tienda(request):
         'products':products
     })
 
-def agragarProducto(request,producto_id):
+def agregarProducto(request,producto_id):
     carrito = Carrito(request)
     producto = Product.objects.get(id = producto_id)
     carrito.agregar(producto)
@@ -182,17 +181,40 @@ def limpiar(request):
     carrito.limpiar()
     return redirect("index")
 
-
 def guardar_carrito(request):
     if request.method == 'POST':
         carrito = Carrito(request)
         for producto_id, producto_info in carrito.carrito.items():
             producto = Product.objects.get(id=producto_info["producto_id"])
             cantidad = producto_info["cantidad"]
-            cart_item = CartItem(user=request.user, product=producto, quantity=cantidad)
-            cart_item.save()
+            
+            # Buscar si ya existe un registro para este producto en el carrito del usuario
+            cart_item, created = CartItem.objects.get_or_create(user=request.user, product=producto)
+            
+            # Si ya existe, simplemente actualiza la cantidad
+            if not created:
+                cart_item.quantity += cantidad
+                cart_item.save()
 
         carrito.limpiar()
 
     return redirect("carrito")
 
+
+def eliminarCarrito(request, producto_id):
+    carrito = Carrito(request)
+    producto = CartItem.objects.get(id = producto_id)
+    producto.delete()
+    return redirect("carrito")
+
+def agregarCarrito(request,producto_id):
+    carrito = Carrito(request)
+    producto = Product.objects.get(id=producto_id)
+    carrito.agregarCarrito(producto)  # Asegúrate de tener un método "aumentar" en tu clase Carrito
+    return redirect("carrito")
+
+def restarCarrito(request,producto_id):
+    carrito = Carrito(request)
+    producto = Product.objects.get(id=producto_id)
+    carrito.restarCarrito(producto)  # Asegúrate de tener un método "aumentar" en tu clase Carrito
+    return redirect("carrito")
