@@ -74,3 +74,15 @@
     }
     
 }
+.total{
+    width: 100%;
+    display: grid;
+    justify-items: end;
+    .totalPrice{
+        background: #888;
+        width: auto;
+        margin: 3rem 0;
+        border-radius: 1rem;
+        padding: 0 4rem;
+    }
+}

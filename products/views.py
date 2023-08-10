@@ -144,12 +144,20 @@ def deleteProduct(request, product_id):
         return redirect("admin")
 
 
-def vista_del_carrito(request):
-    cart_items = CartItem.objects.filter(user=request.user)    
+def mul(value, arg):
+    return value * arg
 
-    return render(request, 'carritoVista.html', {
+
+def vista_del_carrito(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+    total = sum(item.product.price * item.quantity for item in cart_items)
+
+    context = {
         'cart_items': cart_items,
-        })
+        'total': total,
+    }
+
+    return render(request, 'carritoVista.html', context)
 
 def tienda(request):
 
@@ -194,6 +202,9 @@ def guardar_carrito(request):
             # Si ya existe, simplemente actualiza la cantidad
             if not created:
                 cart_item.quantity += cantidad
+                cart_item.save()
+            else:
+                cart_item.quantity = cantidad
                 cart_item.save()
 
         carrito.limpiar()

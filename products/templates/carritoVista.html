@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load mathfilters %}
+
     <main class="contenedor seccion addCarrito">
         <div class="contenidoAdmin">
             <h2>Inicio</h2>
@@ -22,7 +24,9 @@
                             <td><img src="{{ cart_item.product.image.url }}" alt="{{ cart_item.product.title }}"></td>
                             <td>{{ cart_item.product.title }}</td>
                             <td>${{ cart_item.product.price }}</td>
-                            <td>${{ total }}</td>
+
+                            <td>${{ cart_item.product.price|mul:cart_item.quantity }}</td>
+
 
                             <td>
                                 <a href="{% url 'addCarrito' cart_item.product.id %}">+</a>
@@ -35,6 +39,13 @@
                     
                     </tbody>
                 </table>
+                
+            </div>
+
+            <div class="total">
+                <div class="totalPrice">
+                    <p>Total: ${{total}}</p>
+                </div>
             </div>
         </div>
 
