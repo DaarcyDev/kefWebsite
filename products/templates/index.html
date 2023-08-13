@@ -100,7 +100,10 @@
                         </div>
                         
                     </li>
-                    {% endfor %}
+                    {% endfor %}{% if user.is_authenticated %}
+                    <p>|</p>
+                    <a href="{% url 'carrito' %}">Carrito</a>
+                    {% endif %}
                 </ul>
             </div>
         </div>

@@ -43,7 +43,10 @@
             {% csrf_token %}
             <div class="botones">
                 <div><a class="buttonLimpiar" href="{% url 'limpiar' %}">limpiar</a></div>
+                {% if user.is_authenticated %}
                 <div><button type="submit" class="buttonGuardar">guardar</button></div>
+                {% endif %}
+                
             </div>
         </form>
         

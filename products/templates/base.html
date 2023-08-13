@@ -101,8 +101,12 @@
                     <a href="#" id="btnMujer">Mujer</a>
                     <p>|</p>
                     <a href="#" id="btnNiño">Niños</a>
+                    
+                    {% if user.is_authenticated %}
                     <p>|</p>
                     <a href="{% url 'carrito' %}">Carrito</a>
+                    {% endif %}
+                    
                 </nav>
             </div>
         </div>

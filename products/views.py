@@ -7,7 +7,7 @@ from .forms import productForm
 from .models import Product, CartItem
 from django.contrib.auth.decorators import user_passes_test, login_required
 from .carrito import Carrito
-
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 # Create your views here.
 def user_is_specific_user(user):
@@ -114,27 +114,36 @@ def indexAdmin(request):
 def updateProduct(request, product_id):
     if request.method == "GET":
         try:
-            products = get_object_or_404(Product, pk=product_id, user=request.user)
-            form = productForm(instance=products)
-            return render(request, 'updateProduct.html',{
-                "product" : products,
+            product = get_object_or_404(Product, pk=product_id, user=request.user)
+            form = productForm(instance=product)
+            return render(request, 'updateProduct.html', {
+                "product": product,
                 "form": form
             })
         except:
             return redirect("admin")
-    else:
+    elif request.method == "POST":
         try:
-            products = get_object_or_404(Product, pk=product_id, user=request.user)
-            form = productForm(request.POST, instance=products)
-            form.save()
-            # print(form)
-            return redirect("admin")
+            product = get_object_or_404(Product, pk=product_id, user=request.user)
+            form = productForm(request.POST, request.FILES, instance=product)
+            if form.is_valid():
+                # Si se ha proporcionado una nueva imagen, la asignamos al campo
+                new_image = form.cleaned_data.get('image')
+                if isinstance(new_image, InMemoryUploadedFile):
+                    product.image = new_image
+                
+                form.save()
+                return redirect("admin")
+            else:
+                return render(request, 'updateProduct.html', {
+                    "product": product,
+                    "form": form
+                })
         except:
-            return render(request, 'updateProduct.html',{
-            'form': productForm,
-            'error': 'please provide valide data'
-        })
-
+            return render(request, 'updateProduct.html', {
+                'form': productForm,
+                'error': 'please provide valid data'
+            })
 
 @user_passes_test(user_is_specific_user, login_url='index')
 def deleteProduct(request, product_id):
