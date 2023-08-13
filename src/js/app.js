@@ -2,17 +2,30 @@ var generoSeleccionado = "";
 var categoriaSeleccionada = "";
 document.getElementById("btnMujer").addEventListener("click", function () {
   generoSeleccionado = "mujer";
-  mostrarRopa("mujer");
+  if (!categoriaSeleccionada) {
+    mostrarRopa("mujer");
+  } else {
+    mostrarRopaCategoria(categoriaSeleccionada);
+  }
+  
 });
 
 document.getElementById("btnHombre").addEventListener("click", function () {
   generoSeleccionado = "hombre";
-  mostrarRopa("hombre");
+  if (!categoriaSeleccionada) {
+    mostrarRopa("hombre");
+  } else {
+    mostrarRopaCategoria(categoriaSeleccionada);
+  }
 });
 
 document.getElementById("btnNiño").addEventListener("click", function () {
   generoSeleccionado = "niño";
-  mostrarRopa("niño");
+  if (!categoriaSeleccionada) {
+    mostrarRopa("niño");
+  } else {
+    mostrarRopaCategoria(categoriaSeleccionada);
+  }
 });
 
 document.getElementById("btnRopa").addEventListener("click", function() {
@@ -147,3 +160,4 @@ function mostrarRopaCategoria(genero) {
     elementosFiltrados[j].style.display = "block";
   }
 }
+
